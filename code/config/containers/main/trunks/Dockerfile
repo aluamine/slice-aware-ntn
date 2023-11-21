@@ -6,6 +6,7 @@ RUN go get -d github.com/shynuu/trunks
 RUN go install github.com/shynuu/trunks
 
 FROM debian:buster-slim
+WORKDIR /trunks
 RUN apt-get update && DEBIAN_FRONTEND=non-interactive apt-get install -qy --no-install-recommends --no-install-suggests \
     iproute2 iptables procps tcpdump iputils-ping \
     && rm -rf /var/lib/apt/lists/*
